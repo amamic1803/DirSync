@@ -143,42 +143,44 @@ def resource_path(relative_path):
 # end of icon location finder
 
 
-# start of GUI
-root = Tk()
-root.title("DirSync")
-root.geometry(f"500x300+{root.winfo_screenwidth() // 2 - 250}+{root.winfo_screenheight() // 2 - 150}")
-root.resizable(False, False)
-icon_path = resource_path("Dir Sync - icon.ico")
-root.iconbitmap(icon_path)
+if __name__ == '__main__':
 
-# start of main window content
-exit_btn = Button(root, text="Exit", font=("Segoe UI", 9), command=exit_click)
-exit_btn.place(height=25, width=100, x=30, y=240)
-sync_btn = Button(root, text="Synchronise", font=("Segoe UI Bold", 9), command=sync_click_starter,)
-sync_btn.place(height=25, width=100, x=370, y=240)
-name_lbl = Label(root, text="Dir Sync", font=("Times New Roman Bold", 35))
-name_lbl.place(width=175, height=60, x=162.5, y=10)
-description_lbl = Label(root, text="This program synchronises two folders", font=("Segoe UI", 9))
-description_lbl.place(height=15, x=125, y=80)
-description2_lbl = Label(root, text="Source >>> Destination", font=("Segoe UI", 9))
-description2_lbl.place(height=15, x=125, y=100)
-source_lbl = Label(root, text="Source: ", font=("Segoe UI", 9))
-source_lbl.place(width=42.5, x=25, y=149)
-destination_lbl = Label(root, text="Destination: ", font=("Segoe UI", 9))
-destination_lbl.place(width=62.5, x=15, y=179)
-working_lbl = Label(root, text="Syncing...", font=("Segoe UI", 9))
-working_lbl.place_forget()
-source_txt = Entry(root, font=("Segoe UI", 9))
-source_txt.place(width=300, x=90, y=150)
-target_txt = Entry(root, font=("Segoe UI", 9))
-target_txt.place(width=300, x=90, y=180)
-browse1_btn = Button(root, text="Browse", font=("Segoe UI", 9), command=browse1_click)
-browse1_btn.place(y=148, width=80, x=405, height=22)
-browse2_btn = Button(root, text="Browse", font=("Segoe UI", 9), command=browse2_click)
-browse2_btn.place(y=178, width=80, x=405, height=22)
-# end of main window content
+	# start of GUI
+	root = Tk()
+	root.title("DirSync")
+	root.geometry(f"500x300+{root.winfo_screenwidth() // 2 - 250}+{root.winfo_screenheight() // 2 - 150}")
+	root.resizable(False, False)
+	icon_path = resource_path("Dir Sync - icon.ico")
+	root.iconbitmap(icon_path)
 
-root.mainloop()
-# end of GUI
+	# start of main window content
+	exit_btn = Button(root, text="Exit", font=("Segoe UI", 9), command=exit_click)
+	exit_btn.place(height=25, width=100, x=30, y=240)
+	sync_btn = Button(root, text="Synchronise", font=("Segoe UI Bold", 9), command=sync_click_starter,)
+	sync_btn.place(height=25, width=100, x=370, y=240)
+	name_lbl = Label(root, text="Dir Sync", font=("Times New Roman Bold", 35))
+	name_lbl.place(width=175, height=60, x=162.5, y=10)
+	description_lbl = Label(root, text="This program synchronises two folders", font=("Segoe UI", 9))
+	description_lbl.place(height=15, x=125, y=80)
+	description2_lbl = Label(root, text="Source >>> Destination", font=("Segoe UI", 9))
+	description2_lbl.place(height=15, x=125, y=100)
+	source_lbl = Label(root, text="Source: ", font=("Segoe UI", 9))
+	source_lbl.place(width=42.5, x=25, y=149)
+	destination_lbl = Label(root, text="Destination: ", font=("Segoe UI", 9))
+	destination_lbl.place(width=62.5, x=15, y=179)
+	working_lbl = Label(root, text="Syncing...", font=("Segoe UI", 9))
+	working_lbl.place_forget()
+	source_txt = Entry(root, font=("Segoe UI", 9))
+	source_txt.place(width=300, x=90, y=150)
+	target_txt = Entry(root, font=("Segoe UI", 9))
+	target_txt.place(width=300, x=90, y=180)
+	browse1_btn = Button(root, text="Browse", font=("Segoe UI", 9), command=browse1_click)
+	browse1_btn.place(y=148, width=80, x=405, height=22)
+	browse2_btn = Button(root, text="Browse", font=("Segoe UI", 9), command=browse2_click)
+	browse2_btn.place(y=178, width=80, x=405, height=22)
+	# end of main window content
 
-sys.exit()
+	root.mainloop()
+	# end of GUI
+
+	sys.exit()
