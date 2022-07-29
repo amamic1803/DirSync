@@ -8,7 +8,7 @@ from dirsync import sync
 import filecmp
 from threading import Thread
 import psutil
-
+from logging import Logger
 
 def are_dir_trees_equal(dir1, dir2):
 	"""
@@ -68,7 +68,7 @@ def syncing():
 	while num < 3:
 		num += 1
 
-		sync(source_dir, target_dir, 'sync', purge=True, force=True, create=True)
+		sync(source_dir, target_dir, 'sync', logger=Logger(name="capture-stdout"), purge=True, force=True, create=True)
 
 		if are_dir_trees_equal(source_dir, target_dir):
 			loop_info = True
@@ -76,7 +76,7 @@ def syncing():
 		else:
 			loop_info = False
 
-	started = True
+	started = False
 	syncing_lbl.config(text="")
 	browse1_btn.config(background="grey95", activebackground="grey95", highlightthickness=2)
 	browse2_btn.config(background="grey95", activebackground="grey95", highlightthickness=2)
@@ -92,8 +92,6 @@ def syncing():
 def sync_click(event):
 	global sync_process, started
 	if not started:
-		started = True
-
 		sync_process = Thread(target=syncing)
 		sync_process.start()
 
@@ -110,6 +108,7 @@ def browse_click(event, ent):
 	if folder != "":
 		ent.delete(0, END)
 		ent.insert(0, folder)
+		ent.xview_moveto(1)
 
 def change_thickness(event, widget, typ, t_l, t_h, started):
 	if not started:
