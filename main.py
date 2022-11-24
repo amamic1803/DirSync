@@ -1,14 +1,16 @@
+import filecmp
+import os
+import sys
+from logging import Logger
+from threading import Thread
 from tkinter import *
 from tkinter import filedialog
 from tkinter import messagebox
+
 import _tkinter
-import os
-import sys
-from dirsync import sync
-import filecmp
-from threading import Thread
 import psutil
-from logging import Logger
+from dirsync import sync
+
 
 def are_dir_trees_equal(dir1, dir2):
 	"""
@@ -132,8 +134,15 @@ def resource_path(relative_path=""):
 		base_path = os.path.abspath(".")
 	return os.path.join(base_path, relative_path)
 
+def main():
+	global started
+	global sync_process
+	global root
+	global browse1_btn, browse2_btn
+	global source_txt, target_txt
+	global syncing_lbl
+	global sync_btn
 
-if __name__ == '__main__':
 	started = False
 	sync_process = None
 
@@ -141,7 +150,7 @@ if __name__ == '__main__':
 	root.title("DirSync")
 	root.geometry(f"500x230+{root.winfo_screenwidth() // 2 - 250}+{root.winfo_screenheight() // 2 - 115}")
 	root.resizable(False, False)
-	root.iconbitmap(resource_path("DirSync - icon.ico"))
+	root.iconbitmap(resource_path("data/dir-icon.ico"))
 	root.config(background="#ffffff")
 
 	title_lbl = Label(root, text="DirSync", font=("Times New Roman Bold", 35), anchor=CENTER, justify=CENTER, foreground="#000000", activeforeground="#000000", background="#ffffff", activebackground="#ffffff", highlightthickness=0, borderwidth=0)
@@ -192,3 +201,7 @@ if __name__ == '__main__':
 	root.mainloop()
 
 	exit_click()
+
+
+if __name__ == '__main__':
+	main()
