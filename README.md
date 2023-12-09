@@ -1,7 +1,7 @@
 # DirSync
 A program to mirror a selected folder to another location
 
-![screenshot](https://user-images.githubusercontent.com/40371578/181839613-d9ccd296-14d3-408d-af6e-f3cdaa8c2c61.png)
+![screenshot](https://github.com/amamic1803/DirSync/assets/40371578/6fa4d4ef-8fbd-4ebc-9379-b6561ff857c9)
 
 This is very simple program with basic functionality.
 For serious file synchronization tasks, I recommend using a more advanced program.
